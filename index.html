@@ -19,7 +19,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4  mb-3">
                         <div class="card text-white bg-danger">
                             <div class="card-header text-center"><i class="fas fa-globe-americas mr-2"></i>Global</div>
                             <div class="card-body">
@@ -72,59 +72,67 @@
 
 
 
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+
+                        <div v-if="data.length > 0">
+                            <table id="covidTable"  class="table table-dark table-bordered table-responsive">
+                                <thead>
+                                    <tr class="bg-danger">
+                                        <th>Rank</th>
+                                        <th>Country</th>
+                                        <!-- <th>Flag</th> -->
+                                        <th class="text-center">Cases</th>
+                                        <th class="text-center">Today Cases</th>
+                                        <th class="text-center">Deaths</th>
+                                        <th class="text-center">Today Deaths</th>
+                                        <th class="text-center">Recovered</th>
+                                        <!-- <th>Active</th> -->
+                                        <!-- <th>Critical</th> -->
+                                        <!-- <th>Cases Per One Million</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template v-if="searchValue.length < 1">
+                                        <tr v-for="(dt, index) in data">
+                                            <td class="text-right">{{ index+1 }}</td>
+                                            <td>{{ dt.country }}</td>
+                                            <!-- <td><img :src="dt.countryInfo.flag" style="height: 20px; width: 20px;"></td> -->
+                                            <td class="text-right">{{ dt.cases ?  dt.cases.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ dt.todayCases ? dt.todayCases.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ dt.deaths ? dt.deaths.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ dt.todayDeaths ?  dt.todayDeaths.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ dt.recovered ? dt.recovered.toLocaleString('en') : 0 }}</td>
+                                            <!-- <td data-label="Active">{{ dt.active ? dt.active.toLocaleString('en') : 0 }}</td> -->
+                                            <!-- <td data-label="Critical">{{ dt.critical ? dt.critical.toLocaleString('en') : 0 }}</td> -->
+                                            <!-- <td data-label="Cases Per One Million">{{ dt.casesPerOneMillion ? dt.casesPerOneMillion.toLocaleString('en') : 0}}</td> -->
+                                        </tr>
+                                    </template>
+                                    <template v-else>
+                                        <tr v-if="searchResult" v-for="searchResult in searchResults">
+                                            <td class="text-right">{{ searchResult.rank }}</td>
+                                            <td>{{ searchResult.country }}</td>
+                                            <!-- <td><img :src="dt.countryInfo.flag" style="height: 20px; width: 20px;"></td> -->
+                                            <td class="text-right">{{ searchResult.cases ?  searchResult.cases.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ searchResult.todayCases ? searchResult.todayCases.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ searchResult.deaths ? searchResult.deaths.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ searchResult.todayDeaths ?  searchResult.todayDeaths.toLocaleString('en') : 0 }}</td>
+                                            <td class="text-right">{{ searchResult.recovered ? searchResult.recovered.toLocaleString('en') : 0 }}</td>
+                                            <!-- <td data-label="Active">{{ searchResult.active ? searchResult.active.toLocaleString('en') : 0 }}</td> -->
+                                            <!-- <td data-label="Critical">{{ searchResult.critical ? searchResult.critical.toLocaleString('en') : 0 }}</td> -->
+                                            <!-- <td data-label="Cases Per One Million">{{ searchResult.casesPerOneMillion ? searchResult.casesPerOneMillion.toLocaleString('en') : 0}}</td> -->
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
 
 
-                <div v-if="data.length > 0" >
-                    <table id="covidTable">
-                        <thead>
-                            <tr class="bg-danger">
-                                <th>Rank</th>
-                                <th>Country</th>
-                                <!-- <th>Flag</th> -->
-                                <th>Total Cases</th>
-                                <th>Today Cases</th>
-                                <th>Deaths</th>
-                                <th>Today Deaths</th>
-                                <th>Recovered</th>
-                                <th>Active</th>
-                                <th>Critical</th>
-                                <th>Cases Per One Million</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <template v-if="searchValue.length < 1">
-                                <tr v-for="(dt, index) in data">
-                                    <td data-label="Rank">{{ index+1 }}</td>
-                                    <td data-label="Country">{{ dt.country }}</td>
-                                    <!-- <td><img :src="dt.countryInfo.flag" style="height: 20px; width: 20px;"></td> -->
-                                    <td data-label="Total Cases">{{ dt.cases ?  dt.cases.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Today Cases">{{ dt.todayCases ? dt.todayCases.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Deaths">{{ dt.deaths ? dt.deaths.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Today Deaths">{{ dt.todayDeaths ?  dt.todayDeaths.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Recovered">{{ dt.recovered ? dt.recovered.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Active">{{ dt.active ? dt.active.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Critical">{{ dt.critical ? dt.critical.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Cases Per One Million">{{ dt.casesPerOneMillion ? dt.casesPerOneMillion.toLocaleString('en') : 0}}</td>
-                                </tr>
-                            </template>
-                            <template v-else>
-                                <tr v-if="searchResult" v-for="searchResult in searchResults">
-                                    <td data-label="Rank">{{ searchResult.rank }}</td>
-                                    <td data-label="Country">{{ searchResult.country }}</td>
-                                    <!-- <td><img :src="dt.countryInfo.flag" style="height: 20px; width: 20px;"></td> -->
-                                    <td data-label="Total Cases">{{ searchResult.cases ?  searchResult.cases.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Today Cases">{{ searchResult.todayCases ? searchResult.todayCases.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Deaths">{{ searchResult.deaths ? searchResult.deaths.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Today Deaths">{{ searchResult.todayDeaths ?  searchResult.todayDeaths.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Recovered">{{ searchResult.recovered ? searchResult.recovered.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Active">{{ searchResult.active ? searchResult.active.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Critical">{{ searchResult.critical ? searchResult.critical.toLocaleString('en') : 0 }}</td>
-                                    <td data-label="Cases Per One Million">{{ searchResult.casesPerOneMillion ? searchResult.casesPerOneMillion.toLocaleString('en') : 0}}</td>
-                                </tr>
-                            </template>
-                        </tbody>
-                    </table>
+
+                    </div>
                 </div>
+
+
 
 
 
