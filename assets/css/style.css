@@ -1,0 +1,139 @@
+body {
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Merriweather', sans-serif;
+    background-image: url('../images/covid-19.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#covidTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#covidTable td, #covidTable th {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#covidTable th {
+    /* background-color: red; */
+    color: #ffffff;
+}
+
+#covidTable tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+#covidTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#searchBox {
+    width: 100%;
+    border-radius: 12px;
+    padding-left: 15px;
+    color: red;
+}
+#searchBox:focus {
+    outline: none;
+}
+
+/* spinner */
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+
+@media(max-width: 500px) {
+
+    h1 {
+        font-size: 27px;
+    }
+
+    #covidTable thead {
+        display: none;
+    }
+
+
+    #covidTable, #covidTable tbody, #covidTable tr, #covidTable td {
+        display: block;
+        width: 100%;
+    }
+
+    #covidTable tr {
+        margin-bottom: 20px;
+        border-radius: 12px;
+    }
+
+    #covidTable tr td:first-child {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    #covidTable tr td:last-child {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+    #covidTable td {
+        text-align: right;
+        padding-left: 50%;
+        text-align: right;
+        position: relative;
+        background-color: #f4f4f4;
+    }
+
+    #covidTable td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+    #covidTable tbody tr:nth-child(even) {
+        background-color: #fff;
+    }
+
+    body {
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+}
