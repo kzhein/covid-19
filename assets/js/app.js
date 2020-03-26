@@ -39,6 +39,24 @@ new Vue({
             }
             return null;
         },
+        mostDeathCountry() {
+            if(this.data.length > 0) {
+                return this.data.reduce((max, country) => (country.deaths > max.deaths ? country : max ) ,this.data[0]);
+            }
+            return null;
+        },
+        mostDeathToday() {
+            if(this.data.length > 0) {
+                return this.data.reduce((max, country) => (country.todayDeaths > max.todayDeaths ? country : max ) ,this.data[0]);
+            }
+            return null;
+        },
+        mostNewCases() {
+            if(this.data.length > 0) {
+                return this.data.reduce((max, country) => (country.todayCases > max.todayCases ? country : max ) ,this.data[0]);
+            }
+            return null;
+        },
         searchResults() {
             let result = [];
             this.data.forEach((country, index) => {

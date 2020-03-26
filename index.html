@@ -39,10 +39,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-3">
-                                <p class="text-white"><i class="fas fa-search mr-2"></i>Search by country name</p>
-                                <input type="text" id="searchBox" v-model="searchValue">
+                    <div class="col-md-4 mb-3">  
+                        <div class="card text-white bg-danger">
+                            <div class="card-header text-center"><i class="fas fa-database mr-2"></i>Top countries</div>
+                            <div class="card-body">
+                                <p>Most deaths - {{ mostDeathCountry ? mostDeathCountry.country.toLocaleString('en') : ''}}({{ mostDeathCountry ? mostDeathCountry.deaths.toLocaleString('en') : '' }})</p>
+                                <p>Most deaths today - {{ mostDeathToday ? mostDeathToday.country.toLocaleString('en') : ''}} ({{ mostDeathToday ? mostDeathToday.todayDeaths.toLocaleString('en') : '' }})</p>
+                                <p>Most new cases today - {{ mostNewCases ? mostNewCases.country.toLocaleString('en') : ''}} ({{ mostNewCases ? mostNewCases.todayCases.toLocaleString('en') : '' }})</p>
+                            </div>
+                        </div>           
                     </div>
+                    <div class="col-md-4 mb-3">
+                        <p class="text-white"><i class="fas fa-search mr-2"></i>Search by country name</p>
+                        <input type="text" id="searchBox" v-model="searchValue">
+                    </div>                   
 
                 </div>
 
