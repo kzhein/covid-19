@@ -18,6 +18,9 @@ new Vue({
         globalDeaths() {
             return this.data.reduce( (total, data) => total+data.deaths, 0 );
         },
+        globalTodayDeaths() {
+            return this.data.reduce( (total, data) => total+data.todayDeaths, 0 );
+        },
         globalRecovered() {
             return this.data.reduce( (total, data) => total+data.recovered, 0);
         },
