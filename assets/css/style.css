@@ -11,6 +11,8 @@ body {
 }
 
 
+
+
 #searchBox {
     width: 100%;
     border-radius: 12px;
@@ -66,9 +68,9 @@ body {
         background-position: center;
     }
 
-    #covidTable {
+    /* #covidTable {
         margin: auto;
         width: 100% !important; 
-     }
+     } */
 
 }
