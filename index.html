@@ -22,7 +22,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-4  mb-3">
+                    <div class="col-md-6 col-lg-4  mb-3">
                         <div class="card text-white bg-danger">
                             <div class="card-header text-center"><i class="fas fa-globe-americas mr-2"></i>Global</div>
                             <div class="card-body">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3">
                         <div class="card text-white bg-danger">
                             <div class="card-header text-center"><i class="fas fa-flag mr-2"></i>Myanmar</div>
                             <div class="card-body">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-3">  
+                    <div class="col-md-6 col-lg-4 mb-3">  
                         <div class="card text-white bg-danger">
                             <div class="card-header text-center"><i class="fas fa-database mr-2"></i>Top countries</div>
                             <div class="card-body">
@@ -52,9 +52,11 @@
                             </div>
                         </div>           
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <p class="text-white"><i class="fas fa-search mr-2"></i>Search by country name</p>
-                        <input type="text" id="searchBox" v-model="searchValue">
+                    <div class="col-md-6 col-lg-4 mb-3" >
+                        <div id="searchContainer">
+                            <p class="text-white"><i class="fas fa-search mr-2"></i>Search by country name</p>
+                            <input type="text" id="searchBox" v-model="searchValue">
+                        </div>
                     </div>                   
 
                 </div>

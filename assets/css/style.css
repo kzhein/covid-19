@@ -23,6 +23,15 @@ body {
     outline: none;
 }
 
+#searchContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+
+
 /* spinner */
 .lds-ripple {
     display: inline-block;
@@ -68,9 +77,5 @@ body {
         background-position: center;
     }
 
-    /* #covidTable {
-        margin: auto;
-        width: 100% !important; 
-     } */
 
 }
