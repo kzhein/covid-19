@@ -6,7 +6,7 @@ new Vue({
     },
     methods: {
         getData: async function() {
-            let response = await fetch('https://corona.lmao.ninja/countries');
+            let response = await fetch('https://corona.lmao.ninja/countries?sort=cases');
             this.data = await response.json();
             setTimeout(this.getData, 300000);
         }
