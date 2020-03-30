@@ -86,8 +86,8 @@
                                 <thead>
                                     <tr class="bg-danger">
                                         <th>Rank</th>
+                                        <th>Flag</th>
                                         <th>Country</th>
-                                        <!-- <th>Flag</th> -->
                                         <th class="text-center">Cases</th>
                                         <th class="text-center">Today Cases</th>
                                         <th class="text-center">Deaths</th>
@@ -102,8 +102,8 @@
                                     <template v-if="searchValue.length < 1">
                                         <tr v-for="(dt, index) in data">
                                             <td class="text-right">{{ index+1 }}</td>
+                                            <td class="text-center"><img :src="dt.countryInfo.flag" class="flag"></td>
                                             <td>{{ dt.country }}</td>
-                                            <!-- <td><img :src="dt.countryInfo.flag" style="height: 20px; width: 20px;"></td> -->
                                             <td class="text-right">{{ dt.cases ?  dt.cases.toLocaleString('en') : 0 }}</td>
                                             <td class="text-right">{{ dt.todayCases ? dt.todayCases.toLocaleString('en') : 0 }}</td>
                                             <td class="text-right">{{ dt.deaths ? dt.deaths.toLocaleString('en') : 0 }}</td>
@@ -117,6 +117,7 @@
                                     <template v-else>
                                         <tr v-if="searchResult" v-for="searchResult in searchResults">
                                             <td class="text-right">{{ searchResult.rank }}</td>
+                                            <td class="text-center"><img :src="searchResult.countryInfo.flag" class="flag"></td>
                                             <td>{{ searchResult.country }}</td>
                                             <!-- <td><img :src="dt.countryInfo.flag" style="height: 20px; width: 20px;"></td> -->
                                             <td class="text-right">{{ searchResult.cases ?  searchResult.cases.toLocaleString('en') : 0 }}</td>
